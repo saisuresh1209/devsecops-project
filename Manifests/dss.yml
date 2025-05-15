@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: yelp-camp-secrets
+  name: mysecret
   namespace: webapps
 type: Opaque
 data:
