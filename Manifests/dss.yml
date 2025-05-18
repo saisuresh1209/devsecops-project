@@ -5,14 +5,6 @@ metadata:
   name: mysecret
   namespace: webapps
 type: Opaque
-data:
-  CLOUDINARY_CLOUD_NAME: ZHMzZnhmbG4wCg==
-  CLOUDINARY_KEY: MTc4NjM3NTY2NTk1MzY1Cg==
-  CLOUDINARY_SECRET: bi15eWRVZldZTHJ2Q3U3enc2Tkt5cmQzMmo4Cg==
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2ljMmhoYVd0dGRYTjBZV1poTnpjaUxDSmhJam9pWTIxaGNESjNkWGRpTUdONk5USnJjMk5rTkhaaVpXbHpOQ0o5Lm12bGxVei1DT1E5Ui0zS2lSSll2c1EK
-
-  DB_URL: bW9uZ29kYitzcnY6Ly9hd3NhbmRkZXZvcHMxODpVNGFDZ0hYZDR4c0hZeVF3QGNsdXN0ZXIwLjByZ3o5cjcubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eSZhcHBOYW1lPUNsdXN0ZXIwCg==
-  SECRET: bXlzZWNyZXQK
 
 ---
 apiVersion: apps/v1
@@ -35,47 +27,6 @@ spec:
           image: shaikmustafa/camp
           ports:
             - containerPort: 3000
-          env:
-            - name: CLOUDINARY_CLOUD_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: CLOUDINARY_CLOUD_NAME
-            - name: CLOUDINARY_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: CLOUDINARY_KEY
-            - name: CLOUDINARY_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: CLOUDINARY_SECRET
-            - name: MAPBOX_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: MAPBOX_TOKEN
-            - name: DB_URL
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: DB_URL
-            - name: SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: mysecret
-                  key: SECRET
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            initialDelaySeconds: 30   # Adjust the initial delay here
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            initialDelaySeconds: 30   # Adjust the initial delay here
 
 ---
 apiVersion: v1
