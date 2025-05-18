@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: yelp-camp-container
-          image: shaikmustafa/zomato
+          image: shaikmustafa/finalround:staging-v1
           ports:
             - containerPort: 3000
 
